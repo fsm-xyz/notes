@@ -1,0 +1,1 @@
+podman run   -d --name vector  -v $PWD/vector.toml:/etc/vector/vector.toml:ro   -p 8686:8686   timberio/vector:latest-distroless-static

@@ -1,0 +1,16 @@
+[sources.node_exporter]
+type = "prometheus_scrape"
+endpoints = [ "http://172.21.0.6:9100/metrics" ]
+scrape_interval_secs = 15
+
+[sources.host]
+type = "host_metrics"
+
+[sinks.victoria]
+type = "prometheus_remote_write"
+inputs = [ "host", "node_exporter" ]
+endpoint = "http://172.21.0.6:8428/api/v1/write"
+auth.strategy = "basic"
+auth.user = "admin"
+auth.password = "asdfghjklls"
+healthcheck.enabled = false

@@ -1,0 +1,26 @@
+CREATE TABLE `gift_add` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `userid` int(11) NOT NULL COMMENT '用户id',
+  `gid` int(11) NOT NULL COMMENT '礼物id',
+  `gnum` int(11) NOT NULL COMMENT '礼物数量',
+  `ctime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '添加时间',
+  PRIMARY KEY (`id`),
+  KEY `addtime` (`ctime`),
+  KEY `userid` (`userid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+某个时间段，累计获得某个礼物超过100个的userid以及分别获得的个数
+
+SELECT userid, num FROM (
+
+SELECT SUM(gnum) AS num, userid FROM gift_add WHERE addtime > 1 AND addtime < 1 AND gid = 'x' GROUP BY userid
+)
+WHERE num > 100
+
+
+设计一个排麦列表
+
+zset 
+
+room-xxx
+
+申请时间 + uid 

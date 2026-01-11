@@ -1,0 +1,81 @@
+static_resources:
+  listeners:
+  - address:
+      socket_address:
+        address: 0.0.0.0
+        port_value: 8080  
+    filter_chains:
+    - filters:
+      - name: envoy.filters.network.http_connection_manager
+        typed_config:
+          "@type": type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager
+          codec_type: AUTO
+          stat_prefix: ingress_http
+          route_config:
+            name: local_route
+            virtual_hosts:
+            - name: app
+              domains:
+              - "*"
+              routes:
+              - match:
+                  prefix: "/"
+                route:
+                  cluster: service-https
+          http_filters:
+          - name: envoy.filters.http.jwt_authn
+            typed_config:
+              "@type": "type.googleapis.com/envoy.extensions.filters.http.jwt_authn.v3.JwtAuthentication"
+              providers:
+                jwt_auth:
+                  local_jwks:
+                    inline_string: '{"keys":[{"typ": "JWT", "kty":"oct","alg":"HS256","kid":"df","k":"aGVsbG8gd29ybGQ="}]}'
+                  from_headers:
+                  - name: Authorization
+                    value_prefix: "Bearer "
+                  claim_to_headers:
+                  - header_name: uid
+                    claim_name: uid
+              rules:
+              - match:
+                  prefix: "/"
+                requires:
+                  provider_name: jwt_auth
+          - name: envoy.filters.http.lua
+            typed_config:
+              "@type": "type.googleapis.com/envoy.extensions.filters.http.lua.v3.Lua"
+              inline_code: |
+                function envoy_on_request(request_handle)
+                  local uid = request_handle:headers():get("uid")
+                  request_handle:logInfo("key: " ..uid)
+                end
+          - name: envoy.filters.http.wasm
+            typed_config:
+              "@type": type.googleapis.com/udpa.type.v1.TypedStruct
+              type_url: type.googleapis.com/envoy.extensions.filters.http.wasm.v3.Wasm
+              value:
+                config:
+                  configuration:
+                    "@type": type.googleapis.com/google.protobuf.StringValue
+                  vm_config:
+                    runtime: "envoy.wasm.runtime.v8"
+                    code:
+                      local:
+                        filename: "/etc/wasm/uid.wasm"                
+          - name: envoy.filters.http.router
+            typed_config:
+              "@type": type.googleapis.com/envoy.extensions.filters.http.router.v3.Router
+
+  clusters:
+  - name: service-https
+    type: STATIC
+    lb_policy: ROUND_ROBIN
+    load_assignment:
+      cluster_name: service-https
+      endpoints:
+      - lb_endpoints:
+        - endpoint:
+            address:
+              socket_address:
+                address: 127.0.0.1
+                port_value: 5000

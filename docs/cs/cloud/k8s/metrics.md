@@ -1,0 +1,3 @@
+正常ACK是从metrics-server获取
+prometheus修改了数据获取的链路
+链路是prometheus apdter->prometheus
