@@ -4,6 +4,7 @@ import { defineConfig } from '@rspress/core';
 export default defineConfig({
   root: path.join(__dirname, 'docs'),
   title: '个人笔记',
+  base: '/notes/',
   icon: '/rspress-icon.png',
   logo: {
     light: '/rspress-light-logo.png',
