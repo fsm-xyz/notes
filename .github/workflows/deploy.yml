@@ -20,14 +20,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'  # 或直接写 node-version: '25'
-          cache: 'pnpm'                # 启用 pnpm 缓存
+          node-version: '25'
+          # 注意：这里先不要用 cache: 'pnpm'，避免干扰
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 8                  # 可选：指定 pnpm 版本，不写则用最新
-          run_install: false          # 我们稍后手动 run install
+      - name: Install pnpm
+        run: npm install -g pnpm@latest
 
       - name: Install dependencies
         run: pnpm install
