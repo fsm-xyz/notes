@@ -2,7 +2,7 @@ name: Deploy Rspress to GitHub Pages
 
 on:
   push:
-    branches: [ main ]  # 根据你的主分支调整
+    branches: [ main ]
 
 permissions:
   contents: read
@@ -20,11 +20,14 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version-file: '.nvmrc'  # 读取 .nvmrc 中的 "25"
-          cache: 'pnpm'
+          node-version-file: '.nvmrc'  # 或直接写 node-version: '25'
+          cache: 'pnpm'                # 启用 pnpm 缓存
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8                  # 可选：指定 pnpm 版本，不写则用最新
+          run_install: false          # 我们稍后手动 run install
 
       - name: Install dependencies
         run: pnpm install
