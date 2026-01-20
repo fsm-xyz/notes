@@ -1,138 +1,144 @@
 [
-    {
-        "type": "file",
-        "name": "index",
-        "label": "介绍"
-    },
-    {
-        "type": "file",
-        "name": "about",
-        "label": "关于"
-    },
-    {
-        "collapsed": true,
-        "type": "dir",
-        "name": "ideas",
-        "label": "iDeas"
-    },
-    {
-        "collapsed": true,
-        "type": "dir",
-        "name": "base",
-        "label": "基础"
-    },
-    {
-        "collapsed": true,
-        "type": "dir",
-        "name": "cloud",
-        "label": "云原生"
-    },
-    {
-        "collapsed": true,
-        "type": "dir",
-        "name": "ai",
-        "label": "AI"
-    },
-    {
-        "collapsed": true,
-        "type": "dir",
-        "name": "biz",
-        "label": "业务"
-    },
-    {
-        "collapsed": true,
-        "type": "dir",
-        "name": "debug",
-        "label": "排查"
-    },
-    {
-        "collapsed": true,
-        "type": "dir",
-        "name": "storage",
-        "label": "存储"
-    },
-    {
-        "collapsed": true,
-        "type": "dir",
-        "name": "infra",
-        "label": "基础设施"
-    },
-    {
-        "collapsed": true,
-        "type": "dir",
-        "name": "middleware",
-        "label": "中间件"
-    },
-    {
-        "collapsed": true,
-        "type": "dir",
-        "name": "observability",
-        "label": "可观察性"
-    },
-    {
-        "collapsed": true,
-        "type": "dir",
-        "name": "linux",
-        "label": "Linux"
-    },
-    {
-        "collapsed": true,
-        "type": "dir",
-        "name": "lang",
-        "label": "编程语言"
-    },
-    {
-        "collapsed": true,
-        "type": "dir",
-        "name": "database",
-        "label": "数据库"
-    },
-    {
-        "collapsed": true,
-        "type": "dir",
-        "name": "datastruct",
-        "label": "数据结构"
-    },
-    {
-        "collapsed": true,
-        "type": "dir",
-        "name": "algorithm",
-        "label": "算法"
-    },
-    {
-        "collapsed": true,
-        "type": "dir",
-        "name": "network",
-        "label": "网络"
-    },
-    {
-        "collapsed": true,
-        "type": "dir",
-        "name": "web",
-        "label": "Web"
-    },
-    {
-        "collapsed": true,
-        "type": "dir",
-        "name": "web3",
-        "label": "Web3"
-    },
-    {
-        "collapsed": true,
-        "type": "dir",
-        "name": "tool",
-        "label": "工具"
-    },
-    {
-        "collapsed": true,
-        "type": "dir",
-        "name": "interview",
-        "label": "面试"
-    },
-    {
-        "collapsed": true,
-        "type": "dir",
-        "name": "framework",
-        "label": "框架"
-    }
+  {
+    "type": "file",
+    "name": "index",
+    "label": "介绍"
+  },
+  {
+    "type": "file",
+    "name": "about",
+    "label": "关于"
+  },
+  {
+    "collapsed": true,
+    "type": "dir",
+    "name": "ideas",
+    "label": "iDeas"
+  },
+  {
+    "collapsed": true,
+    "type": "dir",
+    "name": "lxcfs-docs",
+    "label": "lxcfs-docs"
+  },
+  {
+    "collapsed": true,
+    "type": "dir",
+    "name": "base",
+    "label": "基础"
+  },
+  {
+    "collapsed": true,
+    "type": "dir",
+    "name": "cloud",
+    "label": "云原生"
+  },
+  {
+    "collapsed": true,
+    "type": "dir",
+    "name": "ai",
+    "label": "AI"
+  },
+  {
+    "collapsed": true,
+    "type": "dir",
+    "name": "biz",
+    "label": "业务"
+  },
+  {
+    "collapsed": true,
+    "type": "dir",
+    "name": "debug",
+    "label": "排查"
+  },
+  {
+    "collapsed": true,
+    "type": "dir",
+    "name": "storage",
+    "label": "存储"
+  },
+  {
+    "collapsed": true,
+    "type": "dir",
+    "name": "infra",
+    "label": "基础设施"
+  },
+  {
+    "collapsed": true,
+    "type": "dir",
+    "name": "middleware",
+    "label": "中间件"
+  },
+  {
+    "collapsed": true,
+    "type": "dir",
+    "name": "observability",
+    "label": "可观察性"
+  },
+  {
+    "collapsed": true,
+    "type": "dir",
+    "name": "linux",
+    "label": "Linux"
+  },
+  {
+    "collapsed": true,
+    "type": "dir",
+    "name": "lang",
+    "label": "编程语言"
+  },
+  {
+    "collapsed": true,
+    "type": "dir",
+    "name": "database",
+    "label": "数据库"
+  },
+  {
+    "collapsed": true,
+    "type": "dir",
+    "name": "datastruct",
+    "label": "数据结构"
+  },
+  {
+    "collapsed": true,
+    "type": "dir",
+    "name": "algorithm",
+    "label": "算法"
+  },
+  {
+    "collapsed": true,
+    "type": "dir",
+    "name": "network",
+    "label": "网络"
+  },
+  {
+    "collapsed": true,
+    "type": "dir",
+    "name": "web",
+    "label": "Web"
+  },
+  {
+    "collapsed": true,
+    "type": "dir",
+    "name": "web3",
+    "label": "Web3"
+  },
+  {
+    "collapsed": true,
+    "type": "dir",
+    "name": "tool",
+    "label": "工具"
+  },
+  {
+    "collapsed": true,
+    "type": "dir",
+    "name": "interview",
+    "label": "面试"
+  },
+  {
+    "collapsed": true,
+    "type": "dir",
+    "name": "framework",
+    "label": "框架"
+  }
 ]
